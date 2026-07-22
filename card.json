@@ -1,0 +1,27 @@
+{
+  "name": "@curation-labs/workflow-skills",
+  "version": "1.0.0",
+  "description": "",
+  "skills": {
+    "include": [
+      "brainstorming",
+      "writing-plans",
+      "executing-plans",
+      "subagent-driven-development",
+      "finishing-a-development-branch",
+      "using-git-worktrees",
+      "dispatching-parallel-agents",
+      "test-driven-development",
+      "systematic-debugging",
+      "verification-before-completion",
+      "requesting-code-review",
+      "receiving-code-review",
+      "incremental-commits"
+    ]
+  },
+  "hooks": {
+    "include": [
+      "org-conventions"
+    ]
+  }
+}
