@@ -1,0 +1,12 @@
+{
+  "name": "@curation-labs/workflow-skills",
+  "version": "1.0.1",
+  "private": true,
+  "description": "Curation Labs org card: customized workflow skills that reference .ai/rules/ for conventions",
+  "type": "module",
+  "scripts": {
+    "test": "node --test test/*.test.mjs",
+    "test:contract": "node --test test/card-contract.test.mjs test/skill-content.test.mjs",
+    "test:hook": "node --test test/hook-policy.test.mjs"
+  }
+}
