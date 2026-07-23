@@ -6,6 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test test/*.test.mjs",
+    "test:functional": "node --test test/functional/*.test.mjs",
+    "test:all": "node --test test/*.test.mjs test/functional/*.test.mjs",
     "test:contract": "node --test test/card-contract.test.mjs test/skill-content.test.mjs",
     "test:hook": "node --test test/hook-policy.test.mjs"
   }
