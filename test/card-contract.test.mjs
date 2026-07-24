@@ -13,9 +13,9 @@ describe("card.json manifest", () => {
     assert.equal(card.name, "@curation-labs/workflow-skills");
   });
 
-  it("has version 1.0.1", () => {
+  it("has version 1.1.0", () => {
     const card = loadCardJson();
-    assert.equal(card.version, "1.0.1");
+    assert.equal(card.version, "1.1.0");
   });
 
   it("has a non-empty description", () => {

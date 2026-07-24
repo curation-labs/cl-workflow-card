@@ -7,6 +7,8 @@ description: Use when completing tasks, implementing major features, or before m
 
 > **Org convention:** In the CL workflow, code review maps to GATE 3 (see `.ai/rules/org-wide/06_issue_workflow.md`). The PR description must include the mandatory `Testing & CI evidence` section.
 
+> **v0.4 state rule:** Request only the current gate. Record the request by updating Reviewer Status, the Issue Status table, and the newest-first Issue Thread entry together; use Slack only for the alert.
+
 Dispatch a code-review subagent to catch issues before they cascade.
 
 **Core principle:** Review early, review often.

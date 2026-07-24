@@ -10,14 +10,12 @@ import { fileURLToPath } from "node:url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export const CARD_ROOT = join(__dirname, "..", "..");
-export const DRWN_CLI = join(
-  process.env.HOME,
-  "dev",
-  "darwinian-minds",
-  "cli",
-  "index.ts",
-);
-export const REPO_WITH_RULES = join(process.env.HOME, "dev", "darwinian-services");
+export const DRWN_CLI =
+  process.env.DRWN_CLI ??
+  join(process.env.HOME, "dev", "darwinian-minds", "cli", "index.ts");
+export const REPO_WITH_RULES =
+  process.env.REPO_WITH_RULES ??
+  join(process.env.HOME, "dev", "darwinian-services");
 export const CARD_NAME = "@curation-labs/workflow-skills";
 
 const tempDirs = [];

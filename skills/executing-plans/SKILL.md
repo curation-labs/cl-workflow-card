@@ -7,6 +7,8 @@ description: Use when you have a written implementation plan to execute in a sep
 
 > **Org convention:** In the CL Issue-driven Workflow (`.ai/rules/org-wide/06_issue_workflow.md`), executing a plan maps to the **Building → GATE 3** transition. The plan you execute is the GATE 2 artifact at `.ai/tasks/clNNNN_<slug>_task_plan.md`. Follow its approved `Testing strategy (TDD contract)` — do not silently deviate.
 
+> **v0.4 state rule:** Owner Status may advance to Building while Reviewer Status still shows an earlier gate. Continue safe stacked work, but do not merge dependent artifacts out of G1 → G2 → G3 order.
+
 ## Overview
 
 Load plan, review critically, execute tasks in batches, report for review between batches.

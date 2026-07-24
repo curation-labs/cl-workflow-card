@@ -9,7 +9,7 @@ describe("catalog publish dry-run", () => {
   it("dry-run exits successfully and returns JSON", () => {
     const { stdout, exitCode, stderr } = spawnDrwn([
       "card", "catalog", "publish",
-      "@curation-labs/workflow-skills@1.0.1",
+      "@curation-labs/workflow-skills@1.1.0",
       "--catalog", "@community",
       "--mode", "direct",
       "--dry-run", "--json",
@@ -21,7 +21,7 @@ describe("catalog publish dry-run", () => {
   it("produces valid catalog entry JSON with correct fields", () => {
     const { stdout } = spawnDrwn([
       "card", "catalog", "publish",
-      "@curation-labs/workflow-skills@1.0.1",
+      "@curation-labs/workflow-skills@1.1.0",
       "--catalog", "@community",
       "--mode", "direct",
       "--dry-run", "--json",
@@ -54,7 +54,7 @@ describe("catalog publish dry-run", () => {
 
     // Card shape
     assert.ok(data.card, "must have a card object");
-    assert.equal(data.card.version, "1.0.1", "card version must be 1.0.1");
+    assert.equal(data.card.version, "1.1.0", "card version must be 1.1.0");
     assert.ok(
       data.card.integrity?.startsWith("sha256-"),
       `card must have sha256 integrity, got: ${data.card.integrity}`,
@@ -65,7 +65,7 @@ describe("catalog publish dry-run", () => {
     // Run dry-run, then check it didn't write to any catalog
     const { exitCode } = spawnDrwn([
       "card", "catalog", "publish",
-      "@curation-labs/workflow-skills@1.0.1",
+      "@curation-labs/workflow-skills@1.1.0",
       "--catalog", "@community",
       "--mode", "direct",
       "--dry-run",

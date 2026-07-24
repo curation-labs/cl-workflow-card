@@ -15,6 +15,17 @@ Every hardcoded convention was replaced with a **reference to `.ai/rules/`**. Th
 | `superpowers:` namespace | Generic skill names (no namespace) |
 | `~/.config/superpowers/` paths | Generic `~/.config/` |
 
+## Workflow v0.4 alignment
+
+Version 1.1.0 adds a compact state contract to all three enforcement layers without copying the full workflow handbook:
+
+- `instructions.md` defines independent Owner Status and Reviewer Status, current-gate ordering, and the atomic Notion update.
+- The hook injects the same minimum contract at runtime and detects stale v0.3 repository rules.
+- Phase-bound skills state only the v0.4 behavior needed at that phase.
+- Issue identity is allocated by the tracker: agents read the generated `ID`, then normalize the title to `[I<N>] <title>` before creating downstream artifacts.
+
+Repository `.ai/rules/` remain authoritative for paths, commands, and detailed conventions. The card pins the minimum workflow-state version so stale rules cannot silently reintroduce Turn, Received, or Handoff behavior.
+
 ## Per-skill changes
 
 ### brainstorming

@@ -7,6 +7,8 @@ description: Use when receiving code review feedback, before implementing sugges
 
 > **Org convention:** When review feedback maps to a GATE (see `.ai/rules/org-wide/06_issue_workflow.md`), technical verification of feedback is mandatory before implementing. This skill defines that verification process.
 
+> **v0.4 state rule:** A pass advances Reviewer Status to the next ready gate, if any. Changes requested remove the item from the reviewer queue and return Owner Status to Architecting (G1), Planning (G2), or Building (G3). Complete the tracker, Issue Status table, and Issue Thread update as one transaction.
+
 ## Overview
 
 Code review requires technical evaluation, not emotional performance.

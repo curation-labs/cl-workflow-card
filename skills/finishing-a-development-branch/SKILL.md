@@ -13,6 +13,8 @@ Guide completion of development work by presenting clear options and handling ch
 
 **Org convention:** Branch completion and PR conventions are defined in `.ai/rules/org-wide/06_issue_workflow.md` (GATE 3) and `.ai/rules/repo-wide/01_git_conventions.md` (branch naming).
 
+**v0.4 state rule:** Stacked Owner work may finish before earlier reviews, but dependent artifacts must not merge out of G1 → G2 → G3 order. Record the final gate result through the complete Notion state-change transaction before publishing or merging.
+
 **Announce at start:** "I'm using the finishing-a-development-branch skill to complete this work."
 
 ## The Process
