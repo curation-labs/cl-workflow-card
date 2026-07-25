@@ -27,6 +27,7 @@ Make the workflow card enforce the minimum CL Issue-driven Workflow v0.4 state c
 - Approval and merge order remains G1 → G2 → G3.
 - A pass surfaces the next ready gate; changes requested remove the review item and return Owner Status to the gate-appropriate phase.
 - Every state change updates the tracker property, Issue Status table, and Issue Thread together; entries are stacked newest-first immediately below `📖 Issue Thread conventions`.
+- Decision threads record the decision without tagging a reviewer or implying a handoff.
 - Slack is an alert, not workflow state.
 - The card does not prescribe Turn, Received, or Handoff.
 

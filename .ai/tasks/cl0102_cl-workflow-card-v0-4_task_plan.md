@@ -18,6 +18,7 @@
 - Only the earliest ready, unapproved gate is actionable.
 - Passed and changes-requested outcomes advance or roll back the correct independent status.
 - State changes require all three Notion surfaces, with thread entries stacked newest-first immediately below `📖 Issue Thread conventions`.
+- Decision threads do not tag a reviewer or imply a handoff.
 - Slack is alert-only.
 - Legacy state mutation instructions do not return.
 
@@ -46,6 +47,7 @@
 - Changes requested return Owner Status to the gate-appropriate phase.
 - State update missing one of the three Notion surfaces.
 - Issue Thread entry placed above or away from `📖 Issue Thread conventions`.
+- Decision entry incorrectly tags a reviewer.
 - Slack text mistakenly treated as state.
 - Stale v0.3 repository rule detected.
 
