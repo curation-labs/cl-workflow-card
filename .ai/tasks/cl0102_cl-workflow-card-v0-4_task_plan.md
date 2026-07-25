@@ -17,7 +17,7 @@
 - Independent Owner Status and Reviewer Status are explicit.
 - Only the earliest ready, unapproved gate is actionable.
 - Passed and changes-requested outcomes advance or roll back the correct independent status.
-- State changes require all three Notion surfaces.
+- State changes require all three Notion surfaces, with thread entries stacked newest-first immediately below `📖 Issue Thread conventions`.
 - Slack is alert-only.
 - Legacy state mutation instructions do not return.
 
@@ -45,6 +45,7 @@
 - Passed gate advances review.
 - Changes requested return Owner Status to the gate-appropriate phase.
 - State update missing one of the three Notion surfaces.
+- Issue Thread entry placed above or away from `📖 Issue Thread conventions`.
 - Slack text mistakenly treated as state.
 - Stale v0.3 repository rule detected.
 

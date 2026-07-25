@@ -48,6 +48,11 @@ describe("workflow v0.4 minimum contract", () => {
     }
   });
 
+  it("stacks Issue Thread entries below the conventions toggle", () => {
+    assert.match(contractSurface, /📖 Issue Thread conventions/);
+    assert.match(contractSurface, /stack (?:every )?(?:entry|entries) immediately below/i);
+  });
+
   it("treats Slack as an alert rather than workflow state", () => {
     assert.match(contractSurface, /Slack (?:may alert|is an alert channel)/);
     assert.match(contractSurface, /not workflow state/);

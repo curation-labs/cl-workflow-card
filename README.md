@@ -17,7 +17,7 @@ This card adapts the upstream "Superpowers" workflow skills (from the `darwinian
 - Reviewer Status exposes only the earliest ready, unapproved gate.
 - Owner work may continue on stacked branches while an earlier gate is reviewed.
 - Approval and merge order remains G1 → G2 → G3.
-- Every state change updates the tracker property, Issue Status table, and Issue Thread together.
+- Every state change updates the tracker property, Issue Status table, and Issue Thread together; thread entries are stacked newest-first immediately below `📖 Issue Thread conventions`.
 - Slack is an alert channel, not workflow state.
 
 The full reader edition and review surface live in the [CL Issue-driven Workflow v0.4 Notion page](https://app.notion.com/p/curation-labs/CL-Issue-driven-Workflow-v0-4-3a6f1fbef8c2810184d1fef4491ece1d). This card carries only the executable minimum needed by agents.

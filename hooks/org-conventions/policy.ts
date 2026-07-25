@@ -24,7 +24,7 @@ Workflow v0.4 state contract:
 - Owner Status and Reviewer Status move independently; Owner work may advance while an earlier gate awaits review
 - Reviewer Status exposes only the earliest ready, unapproved gate; approval order remains G1 -> G2 -> G3
 - A pass surfaces the next ready gate; changes requested remove the review item and return Owner Status to Architecting (G1), Planning (G2), or Building (G3)
-- Every state change atomically updates the tracker property, issue Status table, and newest-first Issue Thread entry
+- Every state change atomically updates the tracker property, issue Status table, and newest-first Issue Thread entry; stack entries immediately below the 📖 Issue Thread conventions toggle
 - Slack is an alert channel, not workflow state; do not prescribe legacy Turn, Status = Received, or Handoff behavior
 
 Key repository conventions to use instead of skill defaults:
