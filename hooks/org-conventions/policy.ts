@@ -26,6 +26,7 @@ Workflow v0.4 state contract:
 - Every Passed or Changes requested result sets Owner Status = Received without changing Owner; Received is an Owner alert/inbox, not a work phase
 - A pass surfaces the next ready gate; changes requested remove the review item until resubmission; Owner acknowledgment restores Planning / Building / In Review after passes or Architecting / Planning / Building after G1 / G2 / G3 changes
 - Every state change atomically updates the tracker property, issue Status table, and newest-first Issue Thread entry; stack entries immediately below the 📖 Issue Thread conventions toggle
+- Every cross-person Issue Thread header uses actual Notion user mentions for both endpoints, resolved from the row's Owner and Reviewer properties; plain role labels, display names, and unlinked @name text are invalid
 - A 📝 Decision thread records the decision only; do not tag a reviewer or imply a handoff
 - Slack is an alert channel, not workflow state; do not prescribe legacy Turn or Handoff behavior, and never use Received as the v0.3 handoff status
 

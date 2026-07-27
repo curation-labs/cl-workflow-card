@@ -110,6 +110,8 @@ describe("hook policy additionalContext content", () => {
     assert.match(src, /Owner Status = Received/);
     assert.match(src, /Owner alert\/inbox, not a work phase/);
     assert.match(src, /tracker property, issue Status table, and newest-first Issue Thread/);
+    assert.match(src, /actual Notion user mentions for both endpoints/);
+    assert.match(src, /Owner and Reviewer properties/);
     assert.match(src, /Slack is an alert channel, not workflow state/);
   });
 });

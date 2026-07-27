@@ -20,6 +20,7 @@ This card adapts the upstream "Superpowers" workflow skills (from the `darwinian
 - Every Passed or Changes requested result sets `Owner Status = Received`; Received is the Owner alert/inbox, not a work phase or handoff.
 - The Owner acknowledges Received into the gate-appropriate execution phase.
 - Every state change updates the tracker property, Issue Status table, and Issue Thread together; thread entries are stacked newest-first immediately below `📖 Issue Thread conventions`.
+- Every cross-person Issue Thread header uses actual Notion user mentions for both endpoints, resolved from the tracker row's Owner and Reviewer properties; plain roles or names are not valid handoff records.
 - `📝 Decision` threads record the decision without tagging a reviewer or implying a handoff.
 - Slack is an alert channel, not workflow state.
 
@@ -89,7 +90,7 @@ The test suite enforces:
 - **card-contract.test.mjs** — card.json shape, skill list, upstream refs, hooks, instructions
 - **skill-content.test.mjs** — no forbidden hardcoded conventions (docs/plans/, [type:component], superpowers:, CLAUDE.md, npm test)
 - **hook-policy.test.mjs** — policy structure and additionalContext content
-- **workflow-v0-4-contract.test.mjs** — independent statuses, current-gate ordering, Received handback, atomic Notion updates, and legacy Turn/Handoff rejection
+- **workflow-v0-4-contract.test.mjs** — independent statuses, current-gate ordering, Received handback, atomic Notion updates, required user mentions, and legacy Turn/Handoff rejection
 
 Functional tests require a local `drwn` checkout, a linked card source, and a repository containing the CL `.ai/rules/`. Override the historical default paths with `DRWN_CLI` and `REPO_WITH_RULES` when needed.
 

@@ -15,7 +15,7 @@ Whenever either status changes, the person making the change completes one atomi
 
 1. Update the Issue Tracker property.
 2. Update the issue page's **Issue Status** table.
-3. Add the newest-first **Issue Thread** entry with timestamp, event label, one-line title, evidence, and next action. Review and handoff events include from → to. A `📝 Decision` entry records the decision only: do not tag a reviewer or imply a handoff. Stack every entry immediately below the `📖 Issue Thread conventions` toggle; do not place entries above the conventions.
+3. Add the newest-first **Issue Thread** entry with timestamp, event label, one-line title, evidence, and next action. Every cross-person review or handoff header includes from → to as **actual Notion user mentions**, resolved from the row's `Owner` and `Reviewer` properties; plain role labels, display names, and unlinked `@name` text are invalid. A `📝 Decision` entry records the decision only: do not tag a reviewer or imply a handoff. Stack every entry immediately below the `📖 Issue Thread conventions` toggle; do not place entries above the conventions.
 
 Slack may alert the next person, but it is not workflow state. Do not prescribe the legacy `Turn` or `Handoff` mechanism. Use `Received` only as the Owner Status alert after a completed review—not as the v0.3 cross-person handoff status.
 

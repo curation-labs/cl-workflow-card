@@ -62,6 +62,13 @@ describe("workflow v0.4 minimum contract", () => {
     assert.match(contractSurface, /stack (?:every )?(?:entry|entries) immediately below/i);
   });
 
+  it("requires actual Notion user mentions for cross-person thread endpoints", () => {
+    assert.match(contractSurface, /cross-person Issue Thread header/i);
+    assert.match(contractSurface, /actual Notion user mentions/i);
+    assert.match(contractSurface, /Owner and Reviewer properties/i);
+    assert.match(contractSurface, /plain role labels, display names, and unlinked @name text are invalid/i);
+  });
+
   it("records decisions without tagging a reviewer", () => {
     assert.match(contractSurface, /📝 Decision/);
     assert.match(contractSurface, /do not tag a reviewer/i);
