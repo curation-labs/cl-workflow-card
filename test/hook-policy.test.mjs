@@ -107,6 +107,8 @@ describe("hook policy additionalContext content", () => {
     assert.match(src, /read its generated ID and rewrite the title as \[I<N>\]/);
     assert.match(src, /Owner Status and Reviewer Status move independently/);
     assert.match(src, /earliest ready, unapproved gate/);
+    assert.match(src, /Owner Status = Received/);
+    assert.match(src, /Owner alert\/inbox, not a work phase/);
     assert.match(src, /tracker property, issue Status table, and newest-first Issue Thread/);
     assert.match(src, /Slack is an alert channel, not workflow state/);
   });

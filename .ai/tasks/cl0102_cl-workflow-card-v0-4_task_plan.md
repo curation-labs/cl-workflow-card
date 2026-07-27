@@ -16,11 +16,12 @@
 - Tracker-generated IDs are read back and applied to issue titles as `[I<N>] <title>`.
 - Independent Owner Status and Reviewer Status are explicit.
 - Only the earliest ready, unapproved gate is actionable.
-- Passed and changes-requested outcomes advance or roll back the correct independent status.
+- Passed and changes-requested outcomes set Owner Status to Received while advancing or removing the correct Reviewer Status.
+- Received is an Owner alert/inbox that the Owner acknowledges into the gate-appropriate execution phase.
 - State changes require all three Notion surfaces, with thread entries stacked newest-first immediately below `📖 Issue Thread conventions`.
 - Decision threads do not tag a reviewer or imply a handoff.
 - Slack is alert-only.
-- Legacy state mutation instructions do not return.
+- Legacy Turn/Handoff instructions and v0.3 Received handoffs do not return.
 
 ### Layer ownership (unit / integration / smoke / E2E)
 
@@ -44,7 +45,9 @@
 - Owner work ahead of review.
 - Multiple ready downstream artifacts with only the earliest gate current.
 - Passed gate advances review.
-- Changes requested return Owner Status to the gate-appropriate phase.
+- Passed or changes-requested review sets Owner Status to Received.
+- Owner acknowledges Received into the gate-appropriate phase.
+- Changes requested remove the gate from the reviewer queue until resubmission.
 - State update missing one of the three Notion surfaces.
 - Issue Thread entry placed above or away from `📖 Issue Thread conventions`.
 - Decision entry incorrectly tags a reviewer.

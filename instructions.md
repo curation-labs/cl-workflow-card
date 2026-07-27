@@ -6,10 +6,10 @@ This card bundles customized workflow skills that follow the Curation Labs engin
 
 The Issue Tracker holds two independent operational truths:
 
-- **Owner Status** records the Owner's current execution phase. The Owner may advance downstream work while an earlier gate awaits review.
+- **Owner Status** records the Owner's current execution phase, except for `Received`: a transient Owner alert/inbox after a completed review. The Owner may advance downstream work while an earlier gate awaits review.
 - **Reviewer Status** records only the earliest ready, unapproved gate. Gates remain ordered G1 → G2 → G3.
 
-When a review passes, record that gate as passed and surface the next ready, unapproved gate. When changes are requested, remove the gate from the reviewer queue and return Owner Status to Architecting for G1, Planning for G2, or Building for G3.
+When a reviewer records either Passed or Changes requested, set **Owner Status = Received** without changing Owner. A pass surfaces the next ready, unapproved gate; changes requested remove the gate from the reviewer queue until resubmission. The Owner acknowledges Received into Planning after a G1 pass, Building after a G2 pass, In Review for merge after a G3 pass, or Architecting / Planning / Building after G1 / G2 / G3 changes respectively. Received is not a work phase and does not restore Turn or Handoff.
 
 Whenever either status changes, the person making the change completes one atomic Notion transaction:
 
@@ -17,7 +17,7 @@ Whenever either status changes, the person making the change completes one atomi
 2. Update the issue page's **Issue Status** table.
 3. Add the newest-first **Issue Thread** entry with timestamp, event label, one-line title, evidence, and next action. Review and handoff events include from → to. A `📝 Decision` entry records the decision only: do not tag a reviewer or imply a handoff. Stack every entry immediately below the `📖 Issue Thread conventions` toggle; do not place entries above the conventions.
 
-Slack may alert the next person, but it is not workflow state. Do not prescribe the legacy `Turn`, `Status = Received`, or `Handoff` mechanism.
+Slack may alert the next person, but it is not workflow state. Do not prescribe the legacy `Turn` or `Handoff` mechanism. Use `Received` only as the Owner Status alert after a completed review—not as the v0.3 cross-person handoff status.
 
 If `.ai/rules/org-wide/06_issue_workflow.md` still prescribes the legacy model, report workflow-rule drift before mutating issue state. Do not silently mix v0.3 and v0.4.
 

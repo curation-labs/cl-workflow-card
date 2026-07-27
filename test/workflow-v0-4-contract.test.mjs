@@ -1,5 +1,5 @@
 // ABOUTME: Contract tests for the CL Issue-driven Workflow v0.4 state model.
-// ABOUTME: Prevents the workflow card from regressing to the legacy Turn/Received/Handoff model.
+// ABOUTME: Prevents regression to legacy Turn/Handoff behavior while preserving the Owner Received inbox.
 
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
@@ -33,9 +33,18 @@ describe("workflow v0.4 minimum contract", () => {
   });
 
   it("defines pass and changes-requested outcomes", () => {
-    assert.match(contractSurface, /review passes[\s\S]*next ready, unapproved gate/i);
-    assert.match(contractSurface, /changes are requested[\s\S]*remove the gate from the reviewer queue/i);
-    assert.match(contractSurface, /Architecting for G1, Planning for G2, or Building for G3/);
+    assert.match(contractSurface, /reviewer records either Passed or Changes requested[\s\S]*Owner Status = Received/i);
+    assert.match(contractSurface, /pass surfaces the next ready, unapproved gate/i);
+    assert.match(contractSurface, /changes requested[\s\S]*remove the gate from the reviewer queue/i);
+    assert.match(contractSurface, /Owner acknowledges Received into Planning after a G1 pass/i);
+    assert.match(contractSurface, /Architecting \/ Planning \/ Building after G1 \/ G2 \/ G3 changes/i);
+  });
+
+  it("uses Received only as the Owner review-result inbox", () => {
+    assert.match(contractSurface, /Owner Status = Received/);
+    assert.match(contractSurface, /Received is not a work phase/);
+    assert.match(contractSurface, /does not restore Turn or Handoff/);
+    assert.match(contractSurface, /not as the v0\.3 cross-person handoff status/);
   });
 
   it("requires the complete Notion state-change transaction", () => {
@@ -64,7 +73,7 @@ describe("workflow v0.4 minimum contract", () => {
     assert.match(contractSurface, /not workflow state/);
   });
 
-  it("rejects legacy state mutation instructions", () => {
+  it("rejects legacy Turn and Handoff mutation instructions", () => {
     assert.doesNotMatch(contractSurface, /Set (?:the )?Turn/);
     assert.doesNotMatch(contractSurface, /Set Status = Received/);
     assert.doesNotMatch(contractSurface, /Handoff = Received/);

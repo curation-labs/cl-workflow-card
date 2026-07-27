@@ -25,15 +25,17 @@ Make the workflow card enforce the minimum CL Issue-driven Workflow v0.4 state c
 - Owner Status may advance while an earlier gate awaits review.
 - Reviewer Status exposes only the earliest ready, unapproved gate.
 - Approval and merge order remains G1 → G2 → G3.
-- A pass surfaces the next ready gate; changes requested remove the review item and return Owner Status to the gate-appropriate phase.
+- Every Passed or Changes requested result sets Owner Status to Received without changing Owner.
+- Received is the Owner alert/inbox, not a work phase; the Owner acknowledges it into the gate-appropriate execution phase.
+- A pass surfaces the next ready gate; changes requested remove the review item until resubmission.
 - Every state change updates the tracker property, Issue Status table, and Issue Thread together; entries are stacked newest-first immediately below `📖 Issue Thread conventions`.
 - Decision threads record the decision without tagging a reviewer or implying a handoff.
 - Slack is an alert, not workflow state.
-- The card does not prescribe Turn, Received, or Handoff.
+- The card does not prescribe Turn or Handoff and never uses Received as the v0.3 handoff status.
 
 ## Test intent
 
-Contract tests must fail if independent statuses, current-gate ordering, the three-part Notion update, Issue Thread placement, or Slack alert-only semantics disappear. Existing manifest, skill-content, hook, and functional suites must remain green.
+Contract tests must fail if independent statuses, current-gate ordering, the Received handback, the three-part Notion update, Issue Thread placement, or Slack alert-only semantics disappear. Existing manifest, skill-content, hook, and functional suites must remain green.
 
 ## Release boundary
 

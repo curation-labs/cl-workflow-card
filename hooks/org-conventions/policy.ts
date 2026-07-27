@@ -23,10 +23,11 @@ Workflow v0.4 state contract:
 - After creating an issue row, read its generated ID and rewrite the title as [I<N>] <title> before creating downstream artifacts
 - Owner Status and Reviewer Status move independently; Owner work may advance while an earlier gate awaits review
 - Reviewer Status exposes only the earliest ready, unapproved gate; approval order remains G1 -> G2 -> G3
-- A pass surfaces the next ready gate; changes requested remove the review item and return Owner Status to Architecting (G1), Planning (G2), or Building (G3)
+- Every Passed or Changes requested result sets Owner Status = Received without changing Owner; Received is an Owner alert/inbox, not a work phase
+- A pass surfaces the next ready gate; changes requested remove the review item until resubmission; Owner acknowledgment restores Planning / Building / In Review after passes or Architecting / Planning / Building after G1 / G2 / G3 changes
 - Every state change atomically updates the tracker property, issue Status table, and newest-first Issue Thread entry; stack entries immediately below the 📖 Issue Thread conventions toggle
 - A 📝 Decision thread records the decision only; do not tag a reviewer or imply a handoff
-- Slack is an alert channel, not workflow state; do not prescribe legacy Turn, Status = Received, or Handoff behavior
+- Slack is an alert channel, not workflow state; do not prescribe legacy Turn or Handoff behavior, and never use Received as the v0.3 handoff status
 
 Key repository conventions to use instead of skill defaults:
 - Doc/plan paths: follow the clNNNN_<slug>_<kind>.md grammar from .ai/rules/org-wide/06_issue_workflow.md (NOT docs/plans/)
