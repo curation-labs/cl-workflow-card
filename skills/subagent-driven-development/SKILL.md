@@ -7,6 +7,8 @@ description: Use when executing implementation plans with independent tasks in t
 
 > **Org convention:** In the CL Issue-driven Workflow (`.ai/rules/org-wide/06_issue_workflow.md`), this skill maps to the **Building** phase. The code review at the end maps to **GATE 3**. The plan you execute is the GATE 2 artifact at `.ai/tasks/clNNNN_<slug>_task_plan.md` — follow its approved `Testing strategy (TDD contract)`. Review cadence: the two-stage per-task review is internal quality control; the final code review produces the GATE 3 PR evidence (see the `Testing & CI evidence` section required in the PR description).
 
+> **v0.4 state rule:** Internal task reviews do not replace Reviewer Status. Only the earliest ready, unapproved gate is current; Owner execution may continue on a stacked branch while that gate is reviewed.
+
 Execute plan by dispatching fresh subagent per task, with two-stage review after each: spec compliance review first, then code quality review.
 
 **Core principle:** Fresh subagent per task + two-stage review (spec then quality) = high quality, fast iteration

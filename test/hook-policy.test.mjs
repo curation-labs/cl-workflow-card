@@ -101,6 +101,19 @@ describe("hook policy additionalContext content", () => {
       "additionalContext must state that .ai/rules/ overrides skill conventions",
     );
   });
+
+  it("injects the workflow v0.4 state contract", () => {
+    const src = readFileSync(POLICY_PATH, "utf8");
+    assert.match(src, /read its generated ID and rewrite the title as \[I<N>\]/);
+    assert.match(src, /Owner Status and Reviewer Status move independently/);
+    assert.match(src, /earliest ready, unapproved gate/);
+    assert.match(src, /Owner Status = Received/);
+    assert.match(src, /Owner alert\/inbox, not a work phase/);
+    assert.match(src, /tracker property, issue Status table, and newest-first Issue Thread/);
+    assert.match(src, /actual Notion user mentions for both endpoints/);
+    assert.match(src, /Owner and Reviewer properties/);
+    assert.match(src, /Slack is an alert channel, not workflow state/);
+  });
 });
 
 describe("hook policy decision evaluation", () => {

@@ -1,7 +1,7 @@
 {
   "name": "@curation-labs/workflow-skills",
-  "version": "1.0.1",
-  "description": "Curation Labs org card: 13 customized workflow skills that reference .ai/rules/ for conventions, with a hook policy that enforces those conventions at runtime.",
+  "version": "1.1.0",
+  "description": "Curation Labs org card: 13 customized workflow skills aligned with the independent Owner Status and Reviewer Status model in CL Issue-driven Workflow v0.4.",
   "instructions": {
     "path": "instructions.md"
   },

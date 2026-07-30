@@ -108,6 +108,8 @@ drwn write
 
 This is by design — it forces a human to review the new policy text before it goes live.
 
+For the v1.1.0 workflow contract update, do not publish until CL Issue-driven Workflow v0.4 is ratified. The draft PR and test results may exist earlier; release publication is the gated action.
+
 ## Blueprint for project use
 
 This card is a plain card (not a blueprint). Projects use it via the `@curation-labs/cl-workflow-blueprint` blueprint, which composes this card. To add the blueprint to a new project:

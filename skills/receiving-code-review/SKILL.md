@@ -7,6 +7,8 @@ description: Use when receiving code review feedback, before implementing sugges
 
 > **Org convention:** When review feedback maps to a GATE (see `.ai/rules/org-wide/06_issue_workflow.md`), technical verification of feedback is mandatory before implementing. This skill defines that verification process.
 
+> **v0.4 state rule:** Every Passed or Changes requested result sets Owner Status to Received without changing Owner. Received is the Owner alert/inbox, not a work phase or handoff. A pass advances Reviewer Status to the next ready gate, if any; changes requested remove the item from the reviewer queue until resubmission. The Owner acknowledges Received into Planning / Building / In Review after a G1 / G2 / G3 pass, or Architecting / Planning / Building after G1 / G2 / G3 changes. Complete the tracker, Issue Status table, and Issue Thread update as one transaction.
+
 ## Overview
 
 Code review requires technical evaluation, not emotional performance.

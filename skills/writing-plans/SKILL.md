@@ -7,6 +7,8 @@ description: Use when you have a spec or requirements for a multi-step task, bef
 
 > **Org convention:** In the CL Issue-driven Workflow (`.ai/rules/org-wide/06_issue_workflow.md`), this skill produces the **GATE 2 task plan artifact**. Save it to `.ai/tasks/clNNNN_<slug>_task_plan.md` following the `clNNNN_` grammar. The plan MUST include the `Testing strategy (TDD contract)` section required by GATE 2.
 
+> **v0.4 state rule:** Owner planning may proceed while G1 is under review. G2 becomes the current Reviewer Status only after G1 passes and the G2 artifact is ready. Record each status change in the tracker property, Issue Status table, and Issue Thread together.
+
 ## Overview
 
 Write comprehensive implementation plans assuming the engineer has zero context for our codebase and questionable taste. Document everything they need to know: which files to touch for each task, code, testing, docs they might need to check, how to test it. Give them the whole plan as bite-sized tasks. DRY. YAGNI. TDD. Frequent commits.

@@ -7,6 +7,8 @@ description: "You MUST use this before any creative work - creating features, bu
 
 > **Org convention:** In the CL Issue-driven Workflow (`.ai/rules/org-wide/06_issue_workflow.md`), this skill maps to the **Architecting → GATE 1** phase. The design doc you produce IS the GATE 1 architecture artifact. Save it using the `clNNNN_<slug>_target_architecture.md` grammar (see the workflow rule), not an arbitrary path.
 
+> **v0.4 state rule:** When the G1 artifact is ready, update Reviewer Status to G1 Review through the complete Notion state-change transaction. Owner Status may continue to Planning or later work while G1 remains under review; approval order does not change.
+
 ## Overview
 
 Help turn ideas into fully formed designs and specs through natural collaborative dialogue.
