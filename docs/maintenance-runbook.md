@@ -7,10 +7,10 @@ How to maintain the workflow-skills card over time.
 When the canonical Superpowers skills in `darwinian-minds/skills/shared/` change:
 
 ```bash
-cd ~/dev/darwinian-minds
+cd ~/dev/darwinian-cards/cards/workflow-skills
 
 # Check which bundled skills have drifted:
-bun run cli/index.ts card source sync @curation-labs/workflow-skills --check
+drwn card source sync . --check
 
 # Output: "synced" (no action) / "stale" (upstream changed) / "moved" (upstream restructured)
 ```
@@ -19,7 +19,7 @@ bun run cli/index.ts card source sync @curation-labs/workflow-skills --check
 
 1. Review the upstream diff:
    ```bash
-   diff ~/dev/darwinian-cards/cl-workflow-skills/skills/<name>/SKILL.md \
+   diff ~/dev/darwinian-cards/cards/workflow-skills/skills/<name>/SKILL.md \
         ~/dev/darwinian-minds/skills/shared/<name>/SKILL.md
    ```
 
@@ -27,7 +27,7 @@ bun run cli/index.ts card source sync @curation-labs/workflow-skills --check
 
 3. Run tests to verify no forbidden patterns crept back:
    ```bash
-   cd ~/dev/darwinian-cards/cl-workflow-skills
+   cd ~/dev/darwinian-cards/cards/workflow-skills
    node --test test/skill-content.test.mjs
    ```
 
@@ -40,26 +40,16 @@ The upstream restructured the skill. Re-evaluate the customization against the n
 After syncing changes:
 
 ```bash
-cd ~/dev/darwinian-minds
+cd ~/dev/darwinian-cards/cards/workflow-skills
 
-# Bump the version:
-bun run cli/index.ts card source set @curation-labs/workflow-skills --version 1.X.0
+# Bump and validate the canonical source repository in place:
+drwn card source set . --version 1.X.0
+drwn card source doctor . --json
 
-# Copy the updated card.json version back to the repo:
-cp ~/.agents/drwn/sources/@curation-labs/workflow-skills/card.json \
-   ~/dev/darwinian-cards/cl-workflow-skills/card.json
-
-# Also copy any updated skills/hooks/instructions:
-cp -R ~/.agents/drwn/sources/@curation-labs/workflow-skills/skills/* \
-   ~/dev/darwinian-cards/cl-workflow-skills/skills/
-cp ~/.agents/drwn/sources/@curation-labs/workflow-skills/hooks/org-conventions/policy.ts \
-   ~/dev/darwinian-cards/cl-workflow-skills/hooks/org-conventions/policy.ts
-
-# Publish:
-bun run cli/index.ts card publish @curation-labs/workflow-skills
+# Publish directly from the canonical source repository:
+drwn card publish --from .
 
 # Commit in the card repo:
-cd ~/dev/darwinian-cards/cl-workflow-skills
 git add -A && git commit -m "[chore] sync upstream + bump to vX.Y.Z"
 ```
 
@@ -78,22 +68,21 @@ drwn write
 ## Adding a new skill to the card
 
 ```bash
-cd ~/dev/darwinian-minds
+cd ~/dev/darwinian-cards/cards/workflow-skills
 
 # Add from the canonical source:
-bun run cli/index.ts card source add-skill @curation-labs/workflow-skills <new-skill-name>
+drwn card source add-skill . <new-skill-name>
 
 # Customize the copy to reference .ai/rules/:
-# (edit ~/dev/darwinian-cards/cl-workflow-skills/skills/<new-skill-name>/SKILL.md)
+# (edit skills/<new-skill-name>/SKILL.md)
 
 # Add to the test's EXPECTED_SKILLS list:
-# (edit ~/dev/darwinian-cards/cl-workflow-skills/test/helpers.mjs)
+# (edit test/helpers.mjs)
 
 # Add upstream ref to card.json skills.upstream:
-# (edit ~/dev/darwinian-cards/cl-workflow-skills/card.json)
+# (edit card.json)
 
 # Run tests + publish:
-cd ~/dev/darwinian-cards/cl-workflow-skills
 node --test test/*.test.mjs
 ```
 
