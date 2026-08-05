@@ -78,5 +78,6 @@ These skills map onto the CL Issue-driven Workflow phases:
 | requesting-code-review, receiving-code-review | GATE 3 review |
 | finishing-a-development-branch | Merged → Knowledge-captured |
 | incremental-commits | All implementation phases |
+| slack-cli | Slack operations (any phase) |
 
 These mappings describe Owner execution. They do not imply that an earlier review must finish before downstream Owner work can begin. Approval and merge order remain strict even when work is stacked.

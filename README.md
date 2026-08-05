@@ -1,6 +1,6 @@
 # @curation-labs/workflow-skills
 
-A Darwinian Minds card bundling 13 customized workflow skills aligned with CL Issue-driven Workflow v0.4, plus a hook policy that enforces its minimum state contract and repository conventions at runtime.
+A Darwinian Minds card bundling 14 customized workflow skills aligned with CL Issue-driven Workflow v0.4, plus a hook policy that enforces its minimum state contract and repository conventions at runtime.
 
 ## What this is
 
@@ -31,8 +31,16 @@ The full reader edition and review surface live in the [CL Issue-driven Workflow
 | Layer | Mechanism | Claude Code | Codex | Cursor | OpenCode |
 |---|---|---|---|---|---|
 | **1. Hook policy** (`additionalContext` on Skill PreToolUse) | Mechanical, per-turn, survives compaction | ✅ | ✅ | ❌ pre-tool | ❌ |
-| **2. `instructions.md`** (card manifest, materialized to disk) | File all agents can read | ✅ | ✅ | ✅ | ✅ |
+| **2. `instructions.md`** → projected to `AGENTS.md` | File all agents read as instructions | ✅ | ✅ | ✅ | ✅ |
 | **3. Customized skill content** | Each SKILL.md references `.ai/rules/` | ✅ | ✅ | ✅ | ✅ |
+
+> **Enforcement scope note.** Layer 1 (the hook) provides mechanical, per-turn context
+> injection for Claude Code and Codex only — Cursor and OpenCode's tool-hook protocols do
+> not carry `additionalContext` at the pre-tool stage, so the hook runs but its context is
+> dropped for those targets. **Layer 2 (`AGENTS.md`) is the universal enforcement channel** —
+> it carries the full v0.4 contract to all four targets and is the primary mechanism for
+> Cursor and OpenCode. Layer 1 is the reliable, compaction-surviving layer for Claude Code
+> and Codex; Layer 2 is the universal baseline.
 
 ## Skills included
 
@@ -51,6 +59,7 @@ The full reader edition and review surface live in the [CL Issue-driven Workflow
 | requesting-code-review | GATE 3 review |
 | receiving-code-review | GATE 3 review |
 | incremental-commits | All implementation phases |
+| slack-cli | Slack read/post/files (any phase) |
 
 ## Installation
 
@@ -98,4 +107,4 @@ Functional tests require a local `drwn` checkout, a linked card source, and a re
 
 See [docs/maintenance-runbook.md](docs/maintenance-runbook.md) for the upstream sync workflow and [docs/customization-decisions.md](docs/customization-decisions.md) for what changed vs upstream and why.
 
-Version 1.1.0 changes the hook text, so existing consumers must re-run `drwn card trust @curation-labs/workflow-skills --hooks` before materializing it.
+Version 1.3.0 changes the hook text, so existing consumers must re-run `drwn card trust @curation-labs/workflow-skills --hooks` before materializing it.

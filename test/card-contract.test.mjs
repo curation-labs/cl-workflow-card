@@ -1,5 +1,5 @@
 // ABOUTME: Contract tests for card.json manifest shape and skill enumeration.
-// ABOUTME: Asserts the card declares exactly the expected 13 skills, upstream refs, hooks, and instructions.
+// ABOUTME: Asserts the card declares exactly the expected 14 skills, upstream refs, hooks, and instructions.
 
 import { describe, it } from "node:test";
 import assert from "node:assert/strict";
@@ -13,9 +13,9 @@ describe("card.json manifest", () => {
     assert.equal(card.name, "@curation-labs/workflow-skills");
   });
 
-  it("has version 1.1.0", () => {
+  it("has version 1.3.0", () => {
     const card = loadCardJson();
-    assert.equal(card.version, "1.1.0");
+    assert.equal(card.version, "1.3.0");
   });
 
   it("has a non-empty description", () => {
@@ -23,7 +23,7 @@ describe("card.json manifest", () => {
     assert.ok(card.description && card.description.length > 10, "description must be non-trivial");
   });
 
-  it("declares exactly the 13 expected skills", () => {
+  it("declares exactly the 14 expected skills", () => {
     const card = loadCardJson();
     const include = card.skills?.include ?? [];
     assert.deepEqual(include.sort(), [...EXPECTED_SKILLS].sort());
@@ -40,14 +40,33 @@ describe("card.json manifest", () => {
   });
 });
 
+// Skills authored originally for this card (no upstream customization source).
+// They are exempt from the upstream-provenance assertions below.
+const ORIGINAL_SKILLS = new Set([
+  "slack-cli", // authored in-repo; no upstream counterpart
+]);
+
 describe("card.json upstream provenance", () => {
-  it("has an upstream ref for every skill", () => {
+  it("has an upstream ref for every customized skill", () => {
     const card = loadCardJson();
     const upstream = card.skills?.upstream ?? {};
     for (const skillName of EXPECTED_SKILLS) {
+      if (ORIGINAL_SKILLS.has(skillName)) continue; // original skills have no upstream
       assert.ok(
         upstream[skillName],
         `skills.upstream must have an entry for "${skillName}"`,
+      );
+    }
+  });
+
+  it("original skills have no upstream ref (they are authored in-repo)", () => {
+    const card = loadCardJson();
+    const upstream = card.skills?.upstream ?? {};
+    for (const skillName of ORIGINAL_SKILLS) {
+      assert.equal(
+        upstream[skillName],
+        undefined,
+        `original skill "${skillName}" must not have an upstream ref`,
       );
     }
   });

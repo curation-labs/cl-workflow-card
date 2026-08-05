@@ -21,6 +21,7 @@ export const EXPECTED_SKILLS = [
   "requesting-code-review",
   "receiving-code-review",
   "incremental-commits",
+  "slack-cli",
 ];
 
 export function loadCardJson() {

@@ -19,11 +19,11 @@ after(() => {
 
 describe("4-target materialization", () => {
   describe("claude target", () => {
-    it("materializes 13 skills to .claude/skills/", () => {
+    it("materializes 14 skills to .claude/skills/", () => {
       const skillsDir = join(projectDir, ".claude", "skills");
       assert.ok(existsSync(skillsDir), ".claude/skills/ must exist");
       const skills = readdirSync(skillsDir).filter((n) => !n.startsWith("."));
-      assert.equal(skills.length, 13, `expected 13 skills, got ${skills.length}: ${skills.join(", ")}`);
+      assert.equal(skills.length, 14, `expected 14 skills, got ${skills.length}: ${skills.join(", ")}`);
     });
 
     it("each .claude/skills/<name>/SKILL.md exists", () => {
@@ -52,11 +52,11 @@ describe("4-target materialization", () => {
   });
 
   describe("codex target", () => {
-    it("materializes 13 skills to .codex/skills/", () => {
+    it("materializes 14 skills to .codex/skills/", () => {
       const skillsDir = join(projectDir, ".codex", "skills");
       assert.ok(existsSync(skillsDir), ".codex/skills/ must exist");
       const skills = readdirSync(skillsDir).filter((n) => !n.startsWith("."));
-      assert.equal(skills.length, 13, `expected 13 skills, got ${skills.length}`);
+      assert.equal(skills.length, 14, `expected 14 skills, got ${skills.length}`);
     });
 
     it("wires hooks into .codex/hooks.json", () => {
