@@ -1,6 +1,6 @@
 {
   "name": "@curation-labs/workflow-skills",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "private": true,
   "description": "Curation Labs org card: customized workflow skills aligned with CL Issue-driven Workflow v0.4",
   "type": "module",

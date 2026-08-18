@@ -1,6 +1,6 @@
 {
   "name": "@curation-labs/workflow-skills",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Curation Labs org card: 14 customized workflow skills aligned with the independent Owner Status and Reviewer Status model in CL Issue-driven Workflow v0.4.",
   "license": "Apache-2.0",
   "stability": "stable",
