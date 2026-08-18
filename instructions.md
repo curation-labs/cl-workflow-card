@@ -32,6 +32,17 @@ The Issue Tracker generates the canonical number:
 
 Do not guess or preallocate an issue number, and do not create downstream artifacts before reading the generated ID.
 
+### Issue Notion pages
+
+Follow the workflow v0.4 patterns above for every issue page. The page body must clearly lay out:
+
+- the **motivation** — the context for why this issue was created and why it is needed;
+- the **core objectives**;
+- the **target end state** — a description of what the completed state looks like;
+- the **success criteria** for issue completion — including how they will be verified or tested.
+
+Use Notion **toggles** on the issue page for incremental progress updates as work advances. Notion operations may use the `ntn` API CLI as needed.
+
 ## Conventions to use instead of skill defaults
 
 ### Document and plan paths
@@ -41,6 +52,14 @@ Use the `clNNNN_<slug>_<kind>.md` grammar from `.ai/rules/org-wide/06_issue_work
 - Completion docs → `.ai/tasks/clNNNN_<slug>_completion.md`
 
 Do **NOT** use `docs/plans/YYYY-MM-DD-*` paths.
+
+### Issue and gap descriptions
+Describe every issue or gap that needs to be decided or discussed in **SCQA** form:
+
+- **Situation** — the relevant context as it currently stands;
+- **Complication** — what makes the situation a problem now;
+- **Question(s)** — the explicit decision questions; multiple questions are allowed;
+- **Answer(s)** — the possible ways forward, each with a pros/cons analysis.
 
 ### Commit prefixes
 Use the area-based prefix table from `.ai/rules/repo-wide/01_git_conventions.md` (e.g. `[studio-be]`, `[auth-hub]`, `[deploy]`).
@@ -81,3 +100,8 @@ These skills map onto the CL Issue-driven Workflow phases:
 | slack-cli | Slack operations (any phase) |
 
 These mappings describe Owner execution. They do not imply that an earlier review must finish before downstream Owner work can begin. Approval and merge order remain strict even when work is stacked.
+
+## Communication rules
+
+- Communicate in a self-contained way: include all relevant context and architecture needed to understand each issue thoroughly, and define specialized terms on first use. Do **NOT** use unexplained jargon.
+- Ground every assertion in evidence. Do **NOT** base assertions on ungrounded speculation; articulate only from evidence you can point to.
